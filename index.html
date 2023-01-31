@@ -14,31 +14,31 @@
 </head>
 
 <body>
-    <header class="container mx-auto md:flex border border-black rounded-md">
-        <div class="w-1/2 h-32 md:flex flex-col justify-center items-center">
-            <h1 class="text-4xl">Astrono-MyDashboard</h1>
-            <h2>subtitle: some text here</h2>
-        </div>
-        <div class="w-1/2 md:h-32 text-sm md:flex justify-end items-center gap-x-2">
-            <div class="w-20 h-10 text-center">Moonrise</div>
-            <div class="w-20 h-10 text-center">Moonset</div>
-            <div class="w-20 h-10 text-center">Time/Date</div>
-            <div class="w-20 h-10 text-center">Location</div>
-        </div>
-    </header>
+    <div class="header-wrapper">
+        <header class="container mx-auto md:flex rounded-md">
+            <div class="w-1/2 h-32 md:flex flex-col justify-center items-center">
+                <h1 class="text-4xl">Astrono-MyDashboard</h1>
+                <h2>subtitle: some text here</h2>
+            </div>
+            <div class="w-1/2 md:h-32 text-sm md:flex justify-end items-center gap-x-2">
+                <div class="w-20 h-10 text-center"><i class="fa-regular fa-moon"></i> Moonrise</div>
+                <div class="w-20 h-10 text-center"><i class="fa-solid fa-mountain-sun"></i> Moonset</div>
+                <div class="w-20 h-10 text-center"><i class="fa-regular fa-calendar-days"></i> Date</div>
+                <div class="w-20 h-10 text-center"><i class="fa-solid fa-location-dot"></i> Location</div>
+            </div>
+        </header>
+    </div>
 
     <main class="w-full mt-3 p-2">
-        <div class="main-container h-[450px] md:flex justify-around items-center">
-            <div class="main-section md:w-[31%] h-full border border-black rounded-md"></div>
-            <div class="main-section md:w-[31%] h-full border border-black rounded-md"></div>
-            <div class="main-section md:w-[31%] h-full border border-black rounded-md"></div>
+        <div class="main-container md:flex justify-around items-center">
+            <div class="main-section md:w-[31%] h-full rounded-md"></div>
+            <div class="main-section md:w-[31%] h-full rounded-md"></div>
+            <div class="main-section md:w-[31%] h-full rounded-md"></div>
         </div>
     </main>
 
-    <footer class="container mx-auto md:flex border border-black rounded-md h-20">
-
-    </footer>
-
+    <div class="footer">
+    </div>
 </body>
 
 </html>
