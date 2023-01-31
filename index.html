@@ -13,32 +13,34 @@
     <link rel="stylesheet" href="./build/css/main.css">
 </head>
 
-<body>
-    <div class="header-wrapper">
-        <header class="container mx-auto md:flex rounded-md">
-            <div class="w-1/2 h-32 md:flex flex-col justify-center items-center">
-                <h1 class="text-4xl">Astrono-MyDashboard</h1>
-                <h2>subtitle: some text here</h2>
+<body class="min-h-screen">
+    <div class="header-wrapper shadow-md">
+        <header class="container mx-auto flex rounded-md">
+            <div class="w-1/2 h-32 flex flex-col justify-center items-center">
+                <h1 class="md:text-4xl">Astrono-MyDashboard</h1>
+                <h2>subtitle some text here</h2>
             </div>
-            <div class="w-1/2 md:h-32 text-sm md:flex justify-end items-center gap-x-2">
-                <div class="w-20 h-10 text-center"><i class="fa-regular fa-moon"></i> Moonrise</div>
-                <div class="w-20 h-10 text-center"><i class="fa-solid fa-mountain-sun"></i> Moonset</div>
-                <div class="w-20 h-10 text-center"><i class="fa-regular fa-calendar-days"></i> Date</div>
-                <div class="w-20 h-10 text-center"><i class="fa-solid fa-location-dot"></i> Location</div>
+            <div class="w-1/2 md:h-32 text-sm md:flex justify-end items-center gap-x-4">
+                <button class="w-22 h-10 text-center"><i class="fa-regular fa-moon"></i> Moonrise</button>
+                <button class="w-22 h-10 text-center"><i class="fa-solid fa-mountain-sun"></i> Moonset</button>
+                <button class="w-22 h-10 text-center"><i class="fa-regular fa-calendar-days"></i> Date</button>
+                <button class="w-22 h-10 text-center"><i class="fa-solid fa-location-dot"></i> Location</button>
             </div>
         </header>
     </div>
 
-    <main class="w-full mt-3 p-2">
-        <div class="main-container md:flex justify-around items-center">
-            <div class="main-section md:w-[31%] h-full rounded-md"></div>
-            <div class="main-section md:w-[31%] h-full rounded-md"></div>
-            <div class="main-section md:w-[31%] h-full rounded-md"></div>
+    <main class="w-full md:p-5">
+        <div class="main-container h-[500px] md:flex justify-around items-center">
+            <div class="main-section md:w-[31%] h-full rounded-md shadow-md"></div>
+            <div class="main-section md:w-[31%] h-full rounded-md shadow-md"></div>
+            <div class="main-section md:w-[31%] h-full rounded-md shadow-md"></div>
         </div>
     </main>
 
-    <div class="footer">
+    <div class="footer-wrapper shadow-md">
+
     </div>
+
 </body>
 
 </html>
