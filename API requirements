@@ -1,0 +1,25 @@
+## Geolocation
+- locally-stored location data, either from browser or provided by user.
+    - default would be browser location, if permission provided (this would not be stored locally
+
+    User goes to page 
+    - browser location permission requested
+        - If approved, check DOM for browser location
+            - not stored, as it can be accessed later.
+        - If denied, request manual location search
+            - store in Local Storage for later use.
+
+    -if none of these work, default to Toronto in code, not local storage
+
+## Location information
+    - moonrise
+    - moonset
+    - weather
+    - planetary traversal?
+
+## Upcoming Calendar
+
+## Picture of the Day
+
+## Bodies and Positions
+
