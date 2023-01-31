@@ -9,35 +9,35 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="./css/styles.css">
-
+    <link rel="stylesheet" href="./build/css/styles.css">
+    <link rel="stylesheet" href="./build/css/main.css">
 </head>
 
 <body>
-    <div class="header-container">
-        <header class="heading">
-            <div class="h-container">
-                <h1 class="md:text-3xl xl:text-4xl">Astrono-MyDashboard</h1>
-                <h2>sub-title</h2>
-            </div>
-            <div class="h-container-2">
-                <div class="box">Moonrise</div>
-                <div class="box">Moonset</div>
-                <div class="box">Date/Time</div>
-                <div class="box">location</div>
-            </div>
-        </header>
-    </div>
+    <header class="container mx-auto md:flex border border-black rounded-md">
+        <div class="w-1/2 h-32 md:flex flex-col justify-center items-center">
+            <h1 class="text-4xl">Astrono-MyDashboard</h1>
+            <h2>subtitle: some text here</h2>
+        </div>
+        <div class="w-1/2 md:h-32 text-sm md:flex justify-end items-center gap-x-2">
+            <div class="w-20 h-10 text-center">Moonrise</div>
+            <div class="w-20 h-10 text-center">Moonset</div>
+            <div class="w-20 h-10 text-center">Time/Date</div>
+            <div class="w-20 h-10 text-center">Location</div>
+        </div>
+    </header>
 
-    <main>
-        <div class="main-container">
-            <div class="main-section"></div>
-            <div class="main-section"></div>
-            <div class="main-section"></div>
+    <main class="w-full mt-3 p-2">
+        <div class="main-container h-[450px] md:flex justify-around items-center">
+            <div class="main-section md:w-[31%] h-full border border-black rounded-md"></div>
+            <div class="main-section md:w-[31%] h-full border border-black rounded-md"></div>
+            <div class="main-section md:w-[31%] h-full border border-black rounded-md"></div>
         </div>
     </main>
 
+    <footer class="container mx-auto md:flex border border-black rounded-md h-20">
+
+    </footer>
 
 </body>
 
