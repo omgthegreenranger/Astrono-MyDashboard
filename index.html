@@ -31,7 +31,17 @@
 
     <main class="w-full md:p-5">
         <div class="main-container h-[500px] md:flex justify-around items-center">
-            <div class="main-section md:w-[31%] h-full rounded-md shadow-md"></div>
+
+            <div id="daily-nasa"
+                class="main-section md:w-[31%] h-full rounded-md shadow-md flex flex-col justify-around items-center">
+                <h3>Daily Pic from NASA <i class="fa-solid fa-user-astronaut"></i></h3>
+                <div id="img-container" class="rounded-md"></div>
+                <div>
+                    <input type="text">
+                    <button>Search</button>
+                </div>
+            </div>
+
             <div class="main-section md:w-[31%] h-full rounded-md shadow-md"></div>
             <div class="main-section md:w-[31%] h-full rounded-md shadow-md"></div>
         </div>
@@ -40,6 +50,8 @@
     <div class="footer-wrapper shadow-md">
 
     </div>
+
+    <script src="./dailyNasa/dailyNasa.js"></script>
 
 </body>
 
