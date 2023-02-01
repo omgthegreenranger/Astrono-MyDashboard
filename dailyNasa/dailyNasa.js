@@ -41,3 +41,5 @@ const dateString = `${year.toString()}-${(month + 1).toString().padStart(2, '0')
 const dailyNasa = new DailyNASA(dateString, imgContainer);
 dailyNasa.renderDailyPic();
 
+
+
