@@ -13,6 +13,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./build/css/main.css">
 </head>
+
 <body class="min-h-screen">
     <div class="header-wrapper shadow-md bg-emerald-500">
         <header class="container mx-auto flex rounded-md">
@@ -35,14 +36,14 @@
         <div class="main-container h-[500px] md:flex justify-around items-center">
 
             <div id="daily-nasa"
-
-                class="main-section md:w-[31%] h-full rounded-md shadow-md flex flex-col justify-around items-center">
+                class="main-section md:w-[31%] h-full rounded-md flex flex-col justify-around items-center">
                 <h3>Daily Pic from NASA <i class="fa-solid fa-user-astronaut"></i></h3>
                 <div id="img-container" class="rounded-md"></div>
                 <div>
-                    <input type="text">
-                    <button>Search</button>
-
+                    <input id="date-input" type="date" class="border border-black rounded-md">
+                    <button id="search-btn" class="text-sm text-white bg-emerald-500 rounded-md p-1">Search
+                        Previous
+                        Pics</button>
                 </div>
             </div>
 
@@ -52,14 +53,14 @@
 
             <div id="myModal" class="modal">
                 <div class="modal-content">
-                   <span class="close">&times;</span>
-                   <h1 id="modal-title"></h1>
-                   <img id="modal-img" src="" alt=""></img>
-                   <h3 id="modal-description"></h3>
-                   <h5 id="modal-date"></h5>
-                   <h5 id="modal-location"></h5>
+                    <span class="close">&times;</span>
+                    <h1 id="modal-title"></h1>
+                    <img id="modal-img" src="" alt=""></img>
+                    <h3 id="modal-description"></h3>
+                    <h5 id="modal-date"></h5>
+                    <h5 id="modal-location"></h5>
                 </div>
-             </div>
+            </div>
             <aside id="news">
                 <div id="myBtn">
 
@@ -81,4 +82,5 @@
     <script src="./js/news.js"></script>
 
 </body>
+
 </html>
