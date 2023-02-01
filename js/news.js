@@ -1,6 +1,6 @@
 const eventsUrlAPI ='https://ll.thespacedevs.com/2.2.0/event/?offset=590'
 
-const local_results = JSON.parse(localStorage.getItem('result'))
+const local_results = JSON.parse(localStorage.getItem('result')) || false
 
 function setLocalResults(data){
     let results = data.results
@@ -8,6 +8,18 @@ function setLocalResults(data){
     return results
 }
 
+function modelHendler(){
+    let item = this.item
+    let img = document.getElementById("modal-img")
+    console.log(item.id);
+    modal.style.display = "block";
+    document.getElementById("modal-title").innerText = item.name;
+    img.src = item.feature_image
+    img.alt = item.name
+    document.getElementById("modal-description").innerText = item.description;
+    document.getElementById("modal-date").innerText = String(item.date).slice(0, 10);
+    document.getElementById("modal-location").innerText = item.location;
+   }
 function hendler(results){
     let item_container = document.getElementById('item-container')
     let item_div;
@@ -19,6 +31,9 @@ function hendler(results){
 
     for(let item of results){      
        item_div = document.createElement('div')
+       item_div.item = item
+       item_div.onclick = modelHendler
+       item.onclick = setLocalResults
        item_div.className = 'item'
 
        item_container.append(item_div)
@@ -54,3 +69,21 @@ if(local_results){
     .then(setLocalResults)
     .then(hendler)
 }
+
+var modal = document.getElementById("myModal");
+
+
+var span = document.getElementsByClassName("close")[0];
+
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
