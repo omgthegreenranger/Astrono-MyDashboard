@@ -22,6 +22,7 @@
 }
 
 .location-and-weather {
-  border: 1px solid black;
   border-radius: 3px;
+  color: white;
+  background-color: rgb(16 185 129);
 }

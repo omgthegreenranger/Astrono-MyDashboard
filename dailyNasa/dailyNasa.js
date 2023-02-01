@@ -19,6 +19,7 @@ class DailyNASA {
   }
 
   async renderDailyPic() { // call this function to render daily pic
+    this.dailyPicContainer.innerHTML = '';
     const picUrl = await this.fetchPicUrl();
     const imgEl = document.createElement('img');
     const author = document.createElement('p');
@@ -43,7 +44,16 @@ const dateString = `${year.toString()}-${(month + 1).toString().padStart(2, '0')
 const dailyNasa = new DailyNASA(dateString, imgContainer);
 dailyNasa.renderDailyPic();
 
-
+// Search previous dates
+const searchBtn = document.getElementById('search-btn');
+searchBtn.addEventListener('click', function() {
+  const dataInput = document.getElementById('date-input');
+  console.log(dataInput.value);
+  if (dataInput.value) {
+    dailyNasa.today = dataInput.value;
+    dailyNasa.renderDailyPic();
+  }
+})
 
 // GET GEOLOCATION
 
@@ -72,7 +82,6 @@ async function success(pos) {
   const p2 = document.createElement('p');
   p2.innerText = `Temp: ${response.list[0].main.temp}°C, cloudiness: ${response.list[0].clouds.all}%, visibility: ${response.list[0].visibility}m`;
   locationDiv.appendChild(p2);
-
 }
 
 
