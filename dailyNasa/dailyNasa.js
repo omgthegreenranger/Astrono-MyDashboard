@@ -43,3 +43,27 @@ dailyNasa.renderDailyPic();
 
 
 
+// GET GEOLOCATION
+
+navigator.geolocation.getCurrentPosition(success);
+
+function success(pos) {
+  const crd = pos.coords;
+  console.log('Your current position is:');
+  console.log(`Latitude : ${crd.latitude}`);
+  console.log(`Longitude: ${crd.longitude}`);
+  console.log(`More or less ${crd.accuracy} meters.`);
+
+  const locationDiv = document.createElement('div');
+  locationDiv.classList.add('text-center');
+  locationDiv.classList.add('bg-emerald-500');
+  const p1 = document.createElement('p');
+  p1.setAttribute('style', 'font-size: 0.7rem');
+  p1.innerText = `Current Location: lat: ${crd.latitude}, lon: ${crd.longitude}`;
+  locationDiv.appendChild(p1);
+  container.prepend(locationDiv);
+}
+
+
+
+
