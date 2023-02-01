@@ -1,20 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/news.css">
     <title>Astrono-MyDashboard - your daily Astronomy Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./build/css/main.css">
 </head>
-<body>
-    <aside id="news">
+<body class="min-h-screen">
+    <div class="header-wrapper shadow-md bg-emerald-500">
+        <header class="container mx-auto flex rounded-md">
+            <div class="w-1/2 h-32 flex flex-col justify-center items-center">
+                <h1 class="md:text-4xl">Astrono-MyDashboard</h1>
+                <h2>subtitle some text here</h2>
+            </div>
+            <div class="w-1/2 md:h-32 text-sm md:flex justify-end items-center gap-x-4">
+                <button class="w-22 h-10 text-center"><i class="fa-regular fa-moon"></i> Moonrise</button>
+                <button class="w-22 h-10 text-center"><i class="fa-solid fa-mountain-sun"></i> Moonset</button>
+                <button class="w-22 h-10 text-center"><i class="fa-regular fa-calendar-days"></i> Date</button>
+                <button class="w-22 h-10 text-center"><i class="fa-solid fa-location-dot"></i> Location</button>
+            </div>
+        </header>
+    </div>
+
+    <main class="w-full md:p-5">
+        <div class="main-container h-[500px] md:flex justify-around items-center">
+
+            <div id="daily-nasa"
+                class="main-section md:w-[31%] h-full rounded-md shadow-md flex flex-col justify-around items-center">
+                <h3>Daily Pic from NASA <i class="fa-solid fa-user-astronaut"></i></h3>
+                <div id="img-container" class="rounded-md"></div>
+                <div>
+                    <input type="text">
+                    <button>Search</button>
+                </div>
+            </div>
+
+            <div class="main-section md:w-[31%] h-full rounded-md shadow-md"></div>
+            <div class="main-section md:w-[31%] h-full rounded-md shadow-md">
+            <aside id="news">
         <div>
             <div id="item-container"></div>
         </div>
         <div class="button"><a href="./calendar.html"><h2>Full Size</h2></a></div>
         
     </aside>
+    </div>
+        </div>
+    </main>
+
+    <div class="footer-wrapper shadow-md">
+
+    </div>
+
+    <script src="./dailyNasa/dailyNasa.js"></script>
     <script src="./js/news.js"></script>
+
 </body>
+
 </html>
