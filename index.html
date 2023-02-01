@@ -35,12 +35,14 @@
         <div class="main-container h-[500px] md:flex justify-around items-center">
 
             <div id="daily-nasa"
-                class="main-section md:w-[31%] h-full rounded-md shadow-md flex flex-col justify-around items-center">
+                class="main-section md:w-[31%] h-full rounded-md flex flex-col justify-around items-center">
                 <h3>Daily Pic from NASA <i class="fa-solid fa-user-astronaut"></i></h3>
                 <div id="img-container" class="rounded-md"></div>
                 <div>
-                    <input type="text" class="border border-black rounded-md">
-                    <button>Search</button>
+                    <input id="date-input" type="date" class="border border-black rounded-md">
+                    <button id="search-btn" class="text-sm text-white bg-emerald-500 rounded-md p-1">Search
+                        Previous
+                        Pics</button>
                 </div>
             </div>
 

@@ -20,3 +20,9 @@
   width: 100%;
   height: 7rem;
 }
+
+.location-and-weather {
+  border-radius: 3px;
+  color: white;
+  background-color: rgb(16 185 129);
+}
