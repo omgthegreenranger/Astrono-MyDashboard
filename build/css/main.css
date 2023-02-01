@@ -20,3 +20,8 @@
   width: 100%;
   height: 7rem;
 }
+
+.location-and-weather {
+  border: 1px solid black;
+  border-radius: 3px;
+}
