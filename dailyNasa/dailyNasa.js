@@ -36,6 +36,9 @@ class DailyNASA {
 }
 
 const container = document.getElementById('daily-nasa');
+const subContainer = document.createElement('div');
+subContainer.setAttribute('id', 'sub-container');
+container.prepend(subContainer);
 const imgContainer = document.getElementById('img-container');
 const year = new Date().getFullYear();
 const month = new Date().getMonth();
@@ -62,7 +65,8 @@ navigator.geolocation.getCurrentPosition(success);
 
 async function success(pos) {
   const crd = pos.coords;
-
+  
+  subContainer.innerHTML = '';
   const locationDiv = document.createElement('div');
   locationDiv.classList.add('location-and-weather');
   locationDiv.classList.add('text-center');
@@ -70,7 +74,7 @@ async function success(pos) {
   p1.setAttribute('style', 'font-size: 1rem');
   p1.innerHTML = `<i class="fa-solid fa-map-location"></i> lat: ${Math.round(crd.latitude * 100) / 100}, lon: ${Math.round(crd.longitude * 100) / 100}`;
   locationDiv.appendChild(p1);
-  container.prepend(locationDiv);
+  subContainer.prepend(locationDiv);
 
   // GET WEATHER
   const data = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${crd.latitude}&lon=${crd.longitude}&units=metric&appid=3ee036a4b94af4c4f30dba029d912c48`);
@@ -116,25 +120,8 @@ $('#high-resolution').on('click', function() {
   )
 })
 
-
-// const locationModal = $('<div>');
-// locationModal.attr('class', 'location-modal');
-// $('body').append(locationModal);
-// locationModal.hide();
-// const locationBtn = $('#location-btn');
-
-// locationBtn.on('click', function() {
-//   console.log($('.location-and-weather').text());
-//   if($('.location-and-weather').text()) {
-//     locationModal.html($(
-//     `<p>Your current location is: <p>
-//     <P>Latitude: </p>
-//     <p>Longitude: </p>`
-//     ));
-//     const closeBtn = $('button');
-//     closeBtn.text('close');
-//     locationModal.append(closeBtn);
-//     locationModal.show();
-//   }
-// })
-
+$('#location-btn').on(
+  'click', function() {
+    navigator.geolocation.getCurrentPosition(success);
+  }
+)
