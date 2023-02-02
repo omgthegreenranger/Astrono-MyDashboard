@@ -125,3 +125,14 @@ $('#location-btn').on(
     navigator.geolocation.getCurrentPosition(success);
   }
 )
+
+const todayDateString = new Date().toLocaleString();
+
+$('#date-btn').on('click', function() {
+  const dateModal = $('<div>');
+  dateModal.attr('class', 'date-modal');
+  const dateEl = $('h2');
+  dateEl.text(todayDateString);
+  dateModal.append(dateEl);
+  $('body').append(dateModal);
+})
