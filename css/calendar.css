@@ -2,14 +2,19 @@
    margin-left: 15px;
 }
 
-.card {
+.card-wraper {
+    float: left;
     box-sizing: border-box;
+    width: 30%;
+    margin:20px;
+    height: 500px;
+}
+
+.card {
     background-color: black;
     color: white;
-    float: left;
-    width: 30%;
     min-height: 400px;
-    margin:20px;
+    width: 100%;
     padding: 5px;
     border-radius: 15px;
 }
@@ -37,3 +42,43 @@
     color: black;
     text-decoration: none;
 }
+
+@media only screen and (max-width: 1370px) {
+    .card-wraper {
+        width: 45%;
+        margin: 15px;
+        height: 700px;
+    }
+    .card img {
+        height: 400px;
+    }
+
+    #main {
+        margin-left: 0px;
+        width: 100%;
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+    .card-wraper {
+        width: 45%;
+        margin: 15px;
+        height: 800px;
+    }
+    
+    .card img {
+        height: 500px;
+    }
+  }
+
+  @media only screen and (max-width: 750px) {
+    .card-wraper {
+        width: 100%;
+        margin: 15px;
+        height: auto;
+    }
+    
+    .card img {
+        height: auto;
+    }
+  }
