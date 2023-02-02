@@ -1,10 +1,10 @@
 const eventsUrlAPI ='https://ll.thespacedevs.com/2.2.0/event/?offset=590'
-
 const local_results = JSON.parse(localStorage.getItem('results'))
 
 let img = document.getElementById('button-img')
 
 img.src = './free-icon-refresh-page-option-25429.png'
+
 
 function setLocalResults(data){
     let results = data.results
