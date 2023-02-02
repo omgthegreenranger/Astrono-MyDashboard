@@ -27,7 +27,7 @@ let typeSelect = "";
 fetchJSON();
 
 function fetchJSON() {
-    fetch("../starlist.json")
+    fetch("./starlist.json")
     .then((response) => response.json())
     .then((data) => {
         starList = (data);
