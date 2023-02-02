@@ -7,7 +7,7 @@ let coordsLon = 43.6532;
 
 let params = "";
 let dataTable = "";
-let starList = ["Sun",
+let starList = [
     "Sirius",
     "Canopus",
     "Rigil Kentaurus & Toliman",
@@ -60,8 +60,19 @@ typeBox.addEventListener('change', function (event){
     typeSelect = event.target.value;
     if(event.target.value == "search") {
         typeSelect = searchAApi;
-        moreBox.innerHTML = `<input type="text" id="searchTerm" placeholder="Enter Search Term">
+        let searchOptions= [`<option value="" disabled selected>Selet Your Choice</option>`];
+        for (i = 0; i < starList.length; i++) {
+            searchOptions.push(`<option value="${starList[i]}">${starList[i]}</option>`)
+        }
+
+        moreBox.innerHTML = 
+        //`<input type="text" id="searchTerm" placeholder="Enter Search Term">
+        `<select id="searhTerm">
+            ${searchOptions}
+        </select>
         <button type="button" id="searchBtn">Search</button>`;
+        
+
 
         let choiceBox = document.querySelector('#searchBtn');
 
@@ -102,7 +113,6 @@ function renderChart(params) {
             body: JSON.stringify(params),
             "Access-Control-Allow-Origin": "*",
             headers: {
-
                 'Authorization': 'Basic ' + hash,
                 'Origin': 'https://omgthegreenranger.github.io/Astrono-MyDashboard',
             },
