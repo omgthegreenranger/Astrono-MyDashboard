@@ -8,6 +8,7 @@ let coordsLon = 43.6532;
 let params = "";
 let dataTable = "";
 let starList = '';
+let listened = '';  
 
 let starChart = "/v2/studio/star-chart";
 let searchAApi = "/v2/search"
@@ -17,6 +18,7 @@ let moreBox = document.querySelector('#search-more');
 let presentBox = document.querySelector('#present-box');
 let choiceBox = '';
 let searchType = '';
+let imageRes = '';
 
 const hash = btoa(`${applicationId}:${applicationSecret}`);
 
@@ -55,22 +57,18 @@ typeBox.addEventListener('change', function (event){
             ${searchOptions}
             </select>
             <button type="button" id="searchBtn">Search</button>`;
-            searchType = "Star";
-
-        } else if (event.target.id == "galaxy") {
-            let searchOptions= [`<option value="" disabled selected>Selet Your Choice</option>`];
-            for (i = 0; i < starList.galaxy.length; i++) {
-                searchOptions.push(`<option value="${starList.galaxy[i]}">${starList.galaxy[i]}</option>`)
-            }
-        
-            moreBox.innerHTML =`<select id="searchTerm">
-            ${searchOptions}
-                </select>
-                <button type="button" id="searchBtn">Search</button>`
-            searchType = "Galaxy";
-    
-            };;
-        
+        searchType = "Star";
+    } else if (event.target.id == "galaxy") {
+        let searchOptions= [`<option value="" disabled selected>Selet Your Choice</option>`];
+        for (i = 0; i < starList.galaxy.length; i++) {
+            searchOptions.push(`<option value="${starList.galaxy[i]}">${starList.galaxy[i]}</option>`)
+        }
+        moreBox.innerHTML =`<select id="searchTerm">
+        ${searchOptions}
+            </select>
+            <button type="button" id="searchBtn">Search</button>`
+        searchType = "Galaxy";
+    };
     choiceBox = document.querySelector('#searchBtn');
     choiceBox.addEventListener('click', function(event){
         presentBox.innerHTML = "";
@@ -82,29 +80,24 @@ typeBox.addEventListener('change', function (event){
     })
 })
 
-let imageRes = '';
-
 function renderChart(params) {
-    console.log(Aapi + starChart);
-        fetch(Aapi + starChart, {
-            method: "POST",
-            body: JSON.stringify(params),
-            "Access-Control-Allow-Origin": "*",
-            headers: {
-                'Authorization': 'Basic ' + hash,
-                'Origin': 'https://omgthegreenranger.github.io/Astrono-MyDashboard',
-            },
-        })
-        .then((response) => response.json())
-        .then((data) => {
+    fetch(Aapi + starChart, {
+        method: "POST",
+        body: JSON.stringify(params),
+        "Access-Control-Allow-Origin": "*",
+        headers: {
+            'Authorization': 'Basic ' + hash,
+            'Origin': 'https://omgthegreenranger.github.io/Astrono-MyDashboard',
+        },
+    })
+    .then((response) => response.json())
+    .then((data) => {
         imageRes = (data);
         console.log(imageRes['data']['imageUrl']);
-                    let imageSrc = imageRes.data['imageUrl'];
+        let imageSrc = imageRes.data['imageUrl'];
         presentBox.innerHTML = `<figure><img src="${imageSrc}"></figure>`
-        })
+    })
 }
-
-
 
 function fetchAPI(typeSelect,params) {
     fetch("https://api.astronomyapi.com/api" + typeSelect + params, {
@@ -124,20 +117,18 @@ function fetchAPI(typeSelect,params) {
             if (dataTable[i] == null) {
                 presentBox.innerHTML = "Nothing found, Dave.";
             } else if(searchType == "other") {
-                presentBox.innerHTML += `
-                <div id="${i}"><span>${dataTable[i]['name']}</span><span>${dataTable[i]['type']['name']}</span><span>${dataTable[i]['position']['constellation']['name']}</span></div>
-                `
+                presentBox.innerHTML +=
+                `<div id="${i}"><span>${dataTable[i]['name']}</span><span>${dataTable[i]['type']['name']}</span><span>${dataTable[i]['position']['constellation']['name']}</span></div>`
             } else if (dataTable[i]['type']['name'] == searchType) {
-                presentBox.innerHTML += `
-                <div id="${i}"><span>${dataTable[i]['name']}</span></div>
-                `
+                presentBox.innerHTML +=
+                `<div id="${i}"><span>${dataTable[i]['name']}</span></div>`
             } else {
                 console.log("Borked!");
-            }
-        }    
-    })
-    }
- let listened = '';   
+            };
+        };   
+    });
+};
+ 
 presentBox.addEventListener('click', function(event) {
     console.log(event.target.parentElement.id);
     listened = dataTable[event.target.parentElement.id];
@@ -150,6 +141,6 @@ presentBox.addEventListener('click', function(event) {
         let view = {"type": "area", "parameters": {"position": {"equatorial": { "rightAscension": parseInt(listened['position']['equatorial']['rightAscension']['hours']), "declination": parseInt(listened['position']['equatorial']['declination']['degrees'])
         }}}, "zoom": 3}
         params = {"observer": observer, "view": view};
-    }
+    };
     renderChart(params);
-})
+});
