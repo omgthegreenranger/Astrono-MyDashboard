@@ -102,7 +102,7 @@ $('#high-resolution').on('click', function() {
     
       const p = $('<a>');
       p.text(response.hdurl);
-      p.attr('href', response.hdurl)
+      p.attr({"href": response.hdurl, "target": "_blank"});
       customModal.append(p);
 
       const closeBtn = $('<button>');
@@ -117,4 +117,18 @@ $('#high-resolution').on('click', function() {
 })
 
 
+const locationModal = $('<div>');
+locationModal.attr('class', 'location-modal');
+$('body').append(locationModal);
+locationModal.hide();
+const locationBtn = $('#location-btn');
+
+locationBtn.on('click', function() {
+  console.log($('.location-and-weather').text());
+  if($('.location-and-weather').text()) {
+    console.log('working');
+    locationModal.text($('.location-and-weather').html());
+    locationModal.show();
+  }
+})
 
