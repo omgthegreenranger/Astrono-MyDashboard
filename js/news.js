@@ -1,6 +1,10 @@
 const eventsUrlAPI ='https://ll.thespacedevs.com/2.2.0/event/?offset=590'
+const local_results = JSON.parse(localStorage.getItem('results'))
 
-const local_results = JSON.parse(localStorage.getItem('results')) || false
+let img = document.getElementById('button-img')
+
+img.src = './free-icon-refresh-page-option-25429.png'
+
 
 function setLocalResults(data){
     let results = data.results
@@ -8,7 +12,7 @@ function setLocalResults(data){
     return results
 }
 
-function modelHendler(){
+function modalHendler(){
     let item = this.item
     let img = document.getElementById("modal-img")
     console.log(item.id);
@@ -32,8 +36,7 @@ function hendler(results){
     for(let item of results){      
        item_div = document.createElement('div')
        item_div.item = item
-       item_div.onclick = modelHendler
-       item.onclick = setLocalResults
+       item_div.onclick = modalHendler
        item_div.className = 'item'
 
        item_container.append(item_div)
@@ -61,14 +64,19 @@ function hendler(results){
    
 }
 
-if(local_results){
-    hendler(local_results)
-}else{
-    fetch(eventsUrlAPI)
-    .then(response => response.json())
-    .then(setLocalResults)
-    .then(hendler)
+
+function dispatch(local_results){
+    if(local_results){
+        hendler(local_results)
+    }else{
+        fetch(eventsUrlAPI)
+        .then(response => response.json())
+        .then(setLocalResults)
+        .then(hendler)
+    }
 }
+
+dispatch(local_results)
 
 var modal = document.getElementById("myModal");
 
@@ -83,7 +91,16 @@ span.onclick = function() {
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+
   }
 }
+
+document.getElementById('button-news').onclick = () => {
+    img.src = './updated.png'
+    setTimeout(() => {img.src='./free-icon-refresh-page-option-25429.png'}, 60000)
+    localStorage.removeItem('results');
+    dispatch(false)
+}
+
 
 
