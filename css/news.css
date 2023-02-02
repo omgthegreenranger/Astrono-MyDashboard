@@ -91,3 +91,29 @@
       text-align: center;
   }
 
+@media only screen and (max-width: 1200px) {
+    .div-date {
+        margin-left: 35px;
+    }
+}
+
+
+@media only screen and (max-width: 1050px) {
+    .div-date {
+        margin-left: 30px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .div-date {
+        margin-left: 25px;
+    }
+}
+
+
+@media only screen and (max-width: 900px) {
+    #news {
+        width: 100%;
+    }
+}
+
