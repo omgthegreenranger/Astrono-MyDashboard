@@ -15,8 +15,8 @@
 </head>
 
 <body class="min-h-screen">
-    <div class="header-wrapper shadow-md bg-emerald-500">
-        <header class="container mx-auto flex rounded-md">
+    <div class="header-wrapper shadow-md bg-slate-800">
+        <header class="container mx-auto flex rounded-md text-white">
             <div class="w-1/2 h-32 flex flex-col justify-center items-center">
                 <h1 class="md:text-4xl"></i> Astrono-MyDashboard</h1>
                 <h2><i class="fa-brands fa-space-awesome"></i> <i class="fa-solid fa-satellite-dish"></i> <i
@@ -26,7 +26,8 @@
             <div class="w-1/2 md:h-32 text-sm md:flex justify-end items-center gap-x-4">
                 <button class="w-22 h-10 text-center"><i class="fa-regular fa-moon"></i> Moonrise</button>
                 <button class="w-22 h-10 text-center"><i class="fa-solid fa-mountain-sun"></i> Moonset</button>
-                <button class="w-22 h-10 text-center"><i class="fa-regular fa-calendar-days"></i> Date</button>
+                <button id="date-btn" class="w-22 h-10 text-center"><i class="fa-regular fa-calendar-days"></i>
+                    Date</button>
                 <button id="location-btn" class="w-22 h-10 text-center"><i class="fa-solid fa-location-dot"></i>
                     Location</button>
 
@@ -38,10 +39,10 @@
         <div class="main-container h-[500px] md:flex justify-around items-center">
 
             <div id="daily-nasa"
-                class="main-section md:w-[25%] h-full rounded-md flex flex-col justify-start items-center">
+                class="main-section bg-white md:w-[25%] h-full rounded-md flex flex-col justify-start items-center">
 
                 <button id="high-resolution" type="button"
-                    class="inline-block w-full px-6 py-2.5 bg-emerald-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+                    class="inline-block w-full px-6 py-2.5 bg-slate-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
                     Check high resolution pic
                 </button>
 
@@ -61,7 +62,7 @@
                             placeholder="Type in date: YYYY-MM-DD">
                     </div>
                     <button id="search-btn"
-                        class="block px-6 py-2.5 bg-emerald-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full mt-2">Search
+                        class="block px-6 py-2.5 bg-slate-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full mt-2">Search
                         Previous
                         Pics</button>
                 </div>

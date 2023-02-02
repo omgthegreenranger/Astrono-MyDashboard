@@ -1,3 +1,7 @@
+body {
+  background-image: url();
+}
+
 #daily-nasa {
   row-gap: 0.7rem;
 }
