@@ -96,8 +96,8 @@ window.onclick = function(event) {
 }
 
 document.getElementById('button-news').onclick = () => {
-    img.src = './updated.png'
-    setTimeout(() => {img.src='./free-icon-refresh-page-option-25429.png'}, 60000)
+    img.src = './assets/images/updated.png'
+    setTimeout(() => {img.src='./assets/images/free-icon-refresh-page-option-25429.png'}, 60000)
     localStorage.removeItem('results');
     dispatch(false)
 }
