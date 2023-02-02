@@ -4,7 +4,7 @@ const local_results = JSON.parse(localStorage.getItem('results'))
 
 let img = document.getElementById('button-img')
 
-img.src = 'img/free-icon-refresh-page-option-25429.png'
+img.src = './free-icon-refresh-page-option-25429.png'
 
 function setLocalResults(data){
     let results = data.results
@@ -96,8 +96,8 @@ window.onclick = function(event) {
 }
 
 document.getElementById('button-news').onclick = () => {
-    img.src = 'img/updated.png'
-    setTimeout(() => {img.src='img/free-icon-refresh-page-option-25429.png'}, 60000)
+    img.src = './updated.png'
+    setTimeout(() => {img.src='./free-icon-refresh-page-option-25429.png'}, 60000)
     localStorage.removeItem('results');
     dispatch(false)
 }
