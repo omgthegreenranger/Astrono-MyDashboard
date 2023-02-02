@@ -99,6 +99,12 @@ $('#high-resolution').on('click', function() {
       const img = $('<img>');
       img.attr('src', hdurl);
       customModal.append(img);
+    
+      const p = $('<a>');
+      p.text(response.hdurl);
+      p.attr('href', response.hdurl)
+      customModal.append(p);
+
       const closeBtn = $('<button>');
       closeBtn.text('close');
       closeBtn.on('click', function() {
