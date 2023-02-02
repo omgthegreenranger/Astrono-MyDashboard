@@ -36,16 +36,35 @@
         <div class="main-container h-[500px] md:flex justify-around items-center">
 
             <div id="daily-nasa"
-                class="main-section md:w-[31%] h-full rounded-md flex flex-col justify-around items-center">
-                <h3>Daily Pic from NASA <i class="fa-solid fa-user-astronaut"></i></h3>
+                class="main-section md:w-[25%] h-full rounded-md flex flex-col justify-start items-center">
+
+                <button id="high-resolution" type="button"
+                    class="inline-block w-full px-6 py-2.5 bg-emerald-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+                    Check high resolution pic
+                </button>
+
                 <div id="img-container" class="rounded-md"></div>
-                <div>
-                    <input id="date-input" type="date" class="border border-black rounded-md">
-                    <button id="search-btn" class="text-sm text-white bg-emerald-500 rounded-md p-1">Search
+                <div class="w-full">
+                    <div class="relative max-w-sm">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                            <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
+                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <input id="date-input" datepicker type="date"
+                            class="bg-gray-30 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Type in date: YYYY-MM-DD">
+                    </div>
+                    <button id="search-btn"
+                        class="block px-6 py-2.5 bg-emerald-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full mt-2">Search
                         Previous
                         Pics</button>
                 </div>
             </div>
+
 
             <div class="main-section md:w-[40%] h-full rounded-md shadow-md"></div>
 
@@ -78,6 +97,9 @@
 
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
+        integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
     <script src="./dailyNasa/dailyNasa.js"></script>
     <script src="./js/news.js"></script>
 
