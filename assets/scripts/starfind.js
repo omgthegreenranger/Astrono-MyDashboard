@@ -7,90 +7,79 @@ let coordsLon = 43.6532;
 
 let params = "";
 let dataTable = "";
-let starList = ["Sun",
-    "Sirius",
-    "Canopus",
-    "Rigil Kentaurus & Toliman",
-    "Arcturus",
-    "Vega",
-    "Capella",
-    "Rigel",
-    "Procyon",
-    "Achernar",
-    "Betelgeuse",
-    "Hadar",
-    "Altair",
-    "Acrux",
-    "Aldebaran",
-    "Antares",
-    "Spica",
-    "Pollux",
-    "Fomalhaut",
-    "Deneb",
-    "Mimosa",
-    "Regulus",
-    "Adhara",
-    "Shaula",
-    "Castor",
-    "Gacrux",
-    "Bellatrix"];
+let starList = '';
+
 let starChart = "/v2/studio/star-chart";
-let planetChart = "/v2/bodies";
-let moonChart = "/v2/studio/moon-phase";
 let searchAApi = "/v2/search"
-let typeBox = document.querySelector('#search');
+let typeBox = document.querySelector('#type-search');
+let setBox = document.querySelector('#search')
 let moreBox = document.querySelector('#search-more');
 let presentBox = document.querySelector('#present-box');
+let choiceBox = '';
+let searchType = '';
 
 const hash = btoa(`${applicationId}:${applicationSecret}`);
-searchDrop();
 
-function searchDrop() {
-    typeBox.innerHTML = `<select name="selection" id="select-box" placeholder="Please Choose Search Parameter">
-    <option value="" disabled selected>Select your choice</option>
-    <option value="stars">Stars</option>
-    <option value="planets">Planets</option>
-    <option value="moon">Moon</option>
-    <option value="search">Search</option>
-    </select>`;
-}
 let typeSelect = "";
 
+// fetches the JSON with the stars and constellations
+
+fetchJSON();
+
+function fetchJSON() {
+    fetch("../starlist.json")
+    .then((response) => response.json())
+    .then((data) => {
+        starList = (data);
+    });
+}
+
+// detect which radio button has been selected, create drop-down list or search box for each.
+
 typeBox.addEventListener('change', function (event){
-    typeSelect = event.target.value;
-    if(event.target.value == "search") {
-        typeSelect = searchAApi;
-        moreBox.innerHTML = `<input type="text" id="searchTerm" placeholder="Enter Search Term">
-        <button type="button" id="searchBtn">Search</button>`;
+    moreBox.innerHTML = "";
+    presentBox.innerHTML = "";
+    typeSelect = searchAApi;
+    if(event.target.id == "other") {
+        moreBox.innerHTML = 
+            `<input type="text" id="searchTerm" placeholder="Enter Search Term">
+            <button type="button" id="searchBtn">Search</button>`;
+            searchType = "Other";
+            
+    } else if (event.target.id == "star") {
+        let searchOptions= [`<option value="" disabled selected>Selet Your Choice</option>`];
+        for (i = 0; i < starList.star.length; i++) {
+            searchOptions.push(`<option value="${starList.star[i]}">${starList.star[i]}</option>`)
+        };
+        moreBox.innerHTML =`<select id="searchTerm">
+            ${searchOptions}
+            </select>
+            <button type="button" id="searchBtn">Search</button>`;
+            searchType = "Star";
 
-        let choiceBox = document.querySelector('#searchBtn');
-
-        choiceBox.addEventListener('click', function(event){
-            console.log(event.target.previousElementSibling.value);
-            searchTerm = event.target.previousElementSibling.value;
-            params = "?term=" + searchTerm + "&match_type=fuzzy";
-
-            fetchAPI(typeSelect,params);
-        });
+        } else if (event.target.id == "galaxy") {
+            let searchOptions= [`<option value="" disabled selected>Selet Your Choice</option>`];
+            for (i = 0; i < starList.galaxy.length; i++) {
+                searchOptions.push(`<option value="${starList.galaxy[i]}">${starList.galaxy[i]}</option>`)
+            }
         
+            moreBox.innerHTML =`<select id="searchTerm">
+            ${searchOptions}
+                </select>
+                <button type="button" id="searchBtn">Search</button>`
+            searchType = "Galaxy";
+    
+            };;
+        
+    choiceBox = document.querySelector('#searchBtn');
+    choiceBox.addEventListener('click', function(event){
+        presentBox.innerHTML = "";
+        console.log(event.target.previousElementSibling.value);
+        searchTerm = event.target.previousElementSibling.value;
+        params = "?term=" + searchTerm + "&match_type=fuzzy";
 
-
-    } else if (event.target.value == "planets") {
-        typeSelect = planetChart;
-
-
-        params = "";
-    } else if (event.target.value == "moon") {
-        typeSelect = moonChart;
-
-
-        params = "";
-    } else if (event.target.value == "stars") {
-        typeSelect = starChart;
-    };
-
-
-    console.log(typeSelect);
+        fetchAPI(typeSelect,params);
+    })
 })
 
 let imageRes = '';
@@ -102,7 +91,6 @@ function renderChart(params) {
             body: JSON.stringify(params),
             "Access-Control-Allow-Origin": "*",
             headers: {
-
                 'Authorization': 'Basic ' + hash,
                 'Origin': 'https://omgthegreenranger.github.io/Astrono-MyDashboard',
             },
@@ -131,11 +119,21 @@ function fetchAPI(typeSelect,params) {
     .then((response) => response.json())
     .then((data) => {
         dataTable = data['data'];
-        console.log(dataTable);
+        
         for(i=0; i < dataTable.length; i++) {
-        presentBox.innerHTML += `
-        <div id="${i}"><span>${dataTable[i]['name']}</span><span>${dataTable[i]['type']['name']}</span><span>${dataTable[i]['position']['constellation']['name']}</span></div>
-        `
+            if (dataTable[i] == null) {
+                presentBox.innerHTML = "Nothing found, Dave.";
+            } else if(searchType == "other") {
+                presentBox.innerHTML += `
+                <div id="${i}"><span>${dataTable[i]['name']}</span><span>${dataTable[i]['type']['name']}</span><span>${dataTable[i]['position']['constellation']['name']}</span></div>
+                `
+            } else if (dataTable[i]['type']['name'] == searchType) {
+                presentBox.innerHTML += `
+                <div id="${i}"><span>${dataTable[i]['name']}</span></div>
+                `
+            } else {
+                console.log("Borked!");
+            }
         }    
     })
     }
@@ -143,8 +141,15 @@ function fetchAPI(typeSelect,params) {
 presentBox.addEventListener('click', function(event) {
     console.log(event.target.parentElement.id);
     listened = dataTable[event.target.parentElement.id];
-    let observer = {"latitude": coordsLat, "longitude": coordsLon, "date": "2019-12-20"};
-    let view = {"type": "constellation", "parameters": {"constellation": listened['position']['constellation']['id']}};
-    params = {"style": "default", "observer": observer, "view": view};
+    if(searchType == "Star"){
+        let observer = {"latitude": coordsLat, "longitude": coordsLon, "date": "2023-02-02"};
+        let view = {"type": "constellation", "parameters": {"constellation": listened['position']['constellation']['id']}};
+        params = {"style": "default", "observer": observer, "view": view};
+    } else if (searchType == "Galaxy") {
+        let observer = {"latitude": coordsLat, "longitude": coordsLon, "date": "2023-02-02"};
+        let view = {"type": "area", "parameters": {"position": {"equatorial": { "rightAscension": parseInt(listened['position']['equatorial']['rightAscension']['hours']), "declination": parseInt(listened['position']['equatorial']['declination']['degrees'])
+        }}}, "zoom": 3}
+        params = {"observer": observer, "view": view};
+    }
     renderChart(params);
 })
