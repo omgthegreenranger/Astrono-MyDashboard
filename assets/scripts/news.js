@@ -3,7 +3,7 @@ const local_results = JSON.parse(localStorage.getItem('results'))
 
 let img = document.getElementById('button-img')
 
-img.src = './free-icon-refresh-page-option-25429.png'
+img.src = './assets/images/free-icon-refresh-page-option-25429.png'
 
 
 function setLocalResults(data){
