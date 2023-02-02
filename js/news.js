@@ -1,6 +1,6 @@
 const eventsUrlAPI ='https://ll.thespacedevs.com/2.2.0/event/?offset=590'
 
-const local_results = JSON.parse(localStorage.getItem('result')) || false
+const local_results = JSON.parse(localStorage.getItem('results')) || false
 
 function setLocalResults(data){
     let results = data.results
