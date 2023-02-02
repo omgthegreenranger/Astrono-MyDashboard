@@ -90,7 +90,6 @@ customModal.attr({
   "class": "custom-modal"
 })
 
-
 $('#high-resolution').on('click', function() {
   dailyNasa.fetchPicUrl().then(
     function(response) {
