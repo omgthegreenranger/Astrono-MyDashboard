@@ -117,18 +117,24 @@ $('#high-resolution').on('click', function() {
 })
 
 
-const locationModal = $('<div>');
-locationModal.attr('class', 'location-modal');
-$('body').append(locationModal);
-locationModal.hide();
-const locationBtn = $('#location-btn');
+// const locationModal = $('<div>');
+// locationModal.attr('class', 'location-modal');
+// $('body').append(locationModal);
+// locationModal.hide();
+// const locationBtn = $('#location-btn');
 
-locationBtn.on('click', function() {
-  console.log($('.location-and-weather').text());
-  if($('.location-and-weather').text()) {
-    console.log('working');
-    locationModal.text($('.location-and-weather').html());
-    locationModal.show();
-  }
-})
+// locationBtn.on('click', function() {
+//   console.log($('.location-and-weather').text());
+//   if($('.location-and-weather').text()) {
+//     locationModal.html($(
+//     `<p>Your current location is: <p>
+//     <P>Latitude: </p>
+//     <p>Longitude: </p>`
+//     ));
+//     const closeBtn = $('button');
+//     closeBtn.text('close');
+//     locationModal.append(closeBtn);
+//     locationModal.show();
+//   }
+// })
 
