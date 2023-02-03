@@ -4,9 +4,7 @@ let applicationSecret = '3fc34ba79f9fea2ffa6b109bad7f1f94bccbac31d7d885cb2509c0a
 
 let coordsLat = '';
 let coordsLon = '';
-// -79.3832; 43.6532;
-console.log(coordsLat);
-console.log(coordsLon);
+
 
 let params = "";
 let dataTable = "";
@@ -49,17 +47,19 @@ function fetchJSON() {
 
 // detect which radio button has been selected, create drop-down list or search box for each.
 
-typeBox.addEventListener('change', function (event){
+typeBox.addEventListener('click', function (event){
+    let choiceTarget = "";
+    choiceTarget = event.target.parentElement.parentElement.id;
     moreBox.innerHTML = "";
     presentBox.innerHTML = "";
     typeSelect = searchAApi;
-    if(event.target.id == "other") {
+    if(choiceTarget == "other") {
         moreBox.innerHTML = 
             `<input type="text" id="searchTerm" placeholder="Enter Search Term">
             <button type="button" id="searchBtn">Search</button>`;
             searchType = "Other";
             
-    } else if (event.target.id == "star") {
+    } else if (choiceTarget == "Star") {
         let searchOptions= [`<option value="" disabled selected>Selet Your Choice</option>`];
         for (i = 0; i < starList.star.length; i++) {
             searchOptions.push(`<option value="${starList.star[i]}">${starList.star[i]}</option>`)
@@ -69,7 +69,7 @@ typeBox.addEventListener('change', function (event){
             </select>
             <button type="button" id="searchBtn">Search</button>`;
         searchType = "Star";
-    } else if (event.target.id == "galaxy") {
+    } else if (choiceTarget == "Galaxy") {
         let searchOptions= [`<option value="" disabled selected>Selet Your Choice</option>`];
         for (i = 0; i < starList.galaxy.length; i++) {
             searchOptions.push(`<option value="${starList.galaxy[i]}">${starList.galaxy[i]}</option>`)
@@ -80,15 +80,25 @@ typeBox.addEventListener('change', function (event){
             <button type="button" class="ring-2 bg-slate-600" id="searchBtn">Search</button>`
         searchType = "Galaxy";
     };
-    choiceBox = document.querySelector('#searchBtn');
-    choiceBox.addEventListener('click', function(event){
-        presentBox.innerHTML = "";
-        console.log(event.target.previousElementSibling.value);
-        searchTerm = event.target.previousElementSibling.value;
-        params = "?term=" + searchTerm + "&match_type=fuzzy";
+    // choiceBox = document.querySelector('#searchBtn');
+    // choiceBox.addEventListener('click', function(event){
+    //     presentBox.innerHTML = "";
+    //     console.log(event.target.previousElementSibling.value);
+    //     searchTerm = event.target.previousElementSibling.value;
+    //     params = "?term=" + searchTerm + "&match_type=fuzzy";
 
-        fetchAPI(typeSelect,params);
-    })
+    //     fetchAPI(typeSelect,params);
+    // })
+})
+
+choiceBox = document.querySelector('#searchBtn');
+choiceBox.addEventListener('click', function(event){
+    presentBox.innerHTML = "";
+    console.log(event.target.previousElementSibling.value);
+    searchTerm = event.target.previousElementSibling.value;
+    params = "?term=" + searchTerm + "&match_type=fuzzy";
+
+    fetchAPI(typeSelect,params);
 })
 
 function renderChart(params) {
