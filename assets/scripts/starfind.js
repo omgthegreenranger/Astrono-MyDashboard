@@ -131,13 +131,15 @@ typeBox.addEventListener('click', function (event){
         }
         console.log(event.target.previousElementSibling.value);
         params = "?term=" + searchTerm + "&match_type=fuzzy";
-
+        presentBox.innerHTML= "";
+        presentBox.innerHTML = `<div class="flex animate-pulse justify-center align-center">"Searching the skies... please wait...";</div>`
         fetchAPI(typeSelect,params);
 })
   
 })
 
 function renderChart(params) {
+    presentBox.innerHTML = `<div class="flex animate-pulse justify-center align-center">Capturing the skies for you...</div>`;
     fetch(Aapi + starChart, {
         method: "POST",
         body: JSON.stringify(params),
@@ -173,12 +175,14 @@ function fetchAPI(typeSelect,params) {
             presentBox.innerHTML = "Nothing found, Dave.";
         } else {
             for(i=0; i < dataTable.length; i++) {
-                if(searchType == "other") {
+                if(searchType == "Other") {
                     presentBox.innerHTML +=
-                    `<div id="${i}"><span>${dataTable[i]['name']}</span><span>${dataTable[i]['type']['name']}</span><span>${dataTable[i]['position']['constellation']['name']}</span></div>`
+                    `<div class="flex" id="${i}"><span class="m-2">${dataTable[i]['name']}</span><span class="m-2">(${dataTable[i]['type']['name']})</span></div>`
                 } else if(dataTable.length == 1) {
                     listened = dataTable[0];
                     selectBody(listened);
+                } else {
+                    presentBox.innerHTML = `<div class="flex justify-center align-center">"I cannot do that, Dave." - HAL 9000</div>`
                 }
         }
         };   
@@ -193,8 +197,13 @@ function selectBody(listened) {
     } else if (searchType == "Galaxy") {
         let observer = {"latitude": coordsLat, "longitude": coordsLon, "date": "2023-02-02"};
         let view = {"type": "area", "parameters": {"position": {"equatorial": { "rightAscension": parseInt(listened['position']['equatorial']['rightAscension']['hours']), "declination": parseInt(listened['position']['equatorial']['declination']['degrees'])
-        }}}, "zoom": 3}
+        }}}, "zoom": 3};
         params = {"observer": observer, "view": view};
+    } else if (searchType == "Other") {
+        let observer = {"latitude": coordsLat, "longitude": coordsLon, "date": "2023-02-02"};
+        let view = {"type": "area", "parameters": {"position": {"equatorial": { "rightAscension": parseInt(listened['position']['equatorial']['rightAscension']['hours']), "declination": parseInt(listened['position']['equatorial']['declination']['degrees'])
+    }}}, "zoom": 3};
+    params = {"observer": observer, "view": view};
     };
     renderChart(params);
 }
