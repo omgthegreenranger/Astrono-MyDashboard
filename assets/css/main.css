@@ -108,7 +108,7 @@ body {
   width: 60%;
   height: 60%;
   background-image: url('./../images/universe.jpg');
-  background-size: contain;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -134,3 +134,9 @@ body {
   border: 1px solid black;
   border-radius: 5px;
 }
+
+#present-box img {
+  max-height: 300px;
+  margin: auto;
+}
+
