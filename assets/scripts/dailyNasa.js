@@ -43,7 +43,7 @@ const imgContainer = document.getElementById('img-container');
 const year = new Date().getFullYear();
 const month = new Date().getMonth();
 const day = new Date().getDate();
-const dateString = `${year.toString()}-${(month + 1).toString().padStart(2, '0')}-${day}`;
+const dateString = `${year.toString()}-${(month + 1).toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
 
 const dailyNasa = new DailyNASA(dateString, imgContainer);
 dailyNasa.renderDailyPic();
@@ -125,3 +125,40 @@ $('#location-btn').on(
     navigator.geolocation.getCurrentPosition(success);
   }
 )
+
+
+const dateModal = $('<div>');
+$('body').append(dateModal);
+dateModal.hide();
+
+$('#date-btn').on('click', function() {
+
+  dateModal.html('');
+  dateModal.attr('class', 'date-modal');
+  const h3 = $('<h3>');
+  h3.text('Welcome to the Solar System');
+  dateModal.append(h3);
+
+  const p = $('<p>');
+  dateModal.append(p);
+
+  showTime();
+  setInterval(showTime, 1000);
+  function showTime() {
+    const hour = new Date().getHours();
+    const hour12 = hour % 12;
+    const amOrPm = hour12 < 12 ? 'pm' : 'am';
+    const minute = new Date().getMinutes();
+    const second = new Date().getSeconds();
+    p.text(`Today's date: ${year.toString()}-${(month + 1).toString().padStart(2, '0')}-${day.toString().padStart(2, '0')} --- ${hour12}:${minute.toString().padStart(2, '0')}:${second.toString().padStart(2, '0')} ${amOrPm}`);
+  }
+
+  const button = $('<button>');
+  button.text('close');
+  button.on('click', function() {
+    dateModal.hide();
+  })
+
+  dateModal.append(button);
+  dateModal.show();
+})
