@@ -15,7 +15,6 @@ function setLocalResults(data){
 function modalHendler(){
     let item = this.item
     let img = document.getElementById("modal-img")
-    console.log(item.id);
     modal.style.display = "block";
     document.getElementById("modal-title").innerText = item.name;
     img.src = item.feature_image
