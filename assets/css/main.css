@@ -1,5 +1,5 @@
 body {
-  background-image: url();
+  background: url(../images/background-image.jpg) no-repeat center center fixed;
 }
 
 #daily-nasa {

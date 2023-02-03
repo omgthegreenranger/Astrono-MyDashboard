@@ -5,12 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./assets/scripts/dailyNasa.js"></script>
 </head>
 <body>
 <section id="set-search">
-<fieldset id="type-search">
+<fieldset class="border-5" id="type-search">
     <legend>Select a celestial body to find:</legend> 
     <div>
+        <i class="fa-regular fa-sun"></i>
         <input type="radio" id="star" name="body" value="star">
         <label for="star">Star</label>
     </div>
@@ -21,12 +24,10 @@
     <div>
         <input type="radio" id="other" name="body" value="other">
         <label for="other">Search for your own!</label>
-    </div>
-    <div id="search">
-        
-    </div>
+    </div>    
 </fieldset>
-
+    <div id="search"> 
+    </div>
 </section>
 <section id="search-more">
 

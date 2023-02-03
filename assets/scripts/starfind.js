@@ -2,8 +2,11 @@ let Aapi = "https://api.astronomyapi.com/api"
 let applicationId = '7760cf6f-6954-443c-b95f-f3fd429adb70';
 let applicationSecret = '3fc34ba79f9fea2ffa6b109bad7f1f94bccbac31d7d885cb2509c0a59c70e0d7ffb0c3f439e37bbedb50b50796c6917fb4205491b187685ef56ee920bd97e07cb7c8d8db32682f1a4961ff0057e95f951dc421ae4e1766078f89d9ca8199e38dd0a926da22df2f8ef7e61f3f72dd7a14';
 
-let coordsLat = -79.3832;
-let coordsLon = 43.6532;
+let coordsLat = '';
+let coordsLon = '';
+// -79.3832; 43.6532;
+console.log(coordsLat);
+console.log(coordsLon);
 
 let params = "";
 let dataTable = "";
@@ -27,6 +30,14 @@ let typeSelect = "";
 // fetches the JSON with the stars and constellations
 
 fetchJSON();
+
+navigator.geolocation.getCurrentPosition(success)
+
+function success(pos) {
+    const crd = pos.coords;
+    coordsLat = crd.latitude;
+    coordsLon = crd.longitude;
+}
 
 function fetchJSON() {
     fetch("./starlist.json")
@@ -66,7 +77,7 @@ typeBox.addEventListener('change', function (event){
         moreBox.innerHTML =`<select id="searchTerm">
         ${searchOptions}
             </select>
-            <button type="button" id="searchBtn">Search</button>`
+            <button type="button" class="ring-2 bg-slate-600" id="searchBtn">Search</button>`
         searchType = "Galaxy";
     };
     choiceBox = document.querySelector('#searchBtn');
