@@ -1,5 +1,5 @@
 body {
-  background-image: url('');
+  background-image: url(../images/background-image.jpg);
   background-size: cover;
 }
 
@@ -125,4 +125,12 @@ body {
   width: 40%;
   height: 11%;
   font-size: 1rem;
+}
+
+#night-sky img {
+  width: 600px;
+  height: 450px;
+  background: url(../images/Loading_icon.gif) 50% no-repeat;
+  border: 1px solid black;
+  border-radius: 5px;
 }
