@@ -39,7 +39,7 @@
         <div class="main-container h-[500px] md:flex justify-around items-center">
 
             <div id="daily-nasa"
-                class="main-section bg-white md:w-[25%] h-full rounded-md flex flex-col justify-start items-center">
+                class="main-section bg-white md:w-[25%] h-full rounded-md flex flex-col justify-start items-center p-1">
 
                 <button id="high-resolution" type="button"
                     class="inline-block w-full px-6 py-2.5 bg-slate-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
@@ -74,21 +74,20 @@
                     <div>
                         <div>Select a celestial body to find:</div>
                         <div class="justify-center flex content-start" id="type-search">
-                            <div class="inline-block justify-self-auro w-full px-6" id="Star">
-                                <button type="button" class="justify-around  py-3 inline-block w-full h-full bg-slate-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"><i class="fa-solid fa-3x fa-sun"></i><div>Stars</div></button>
+                            <div class="justify-self-auto w-full px-6" id="Star">
+                                <div class="flex flex-col justify-center items-center py-3 w-full h-full bg-slate-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"><i class="fa-solid fa-3x fa-sun"></i><div>Stars</div></div>
                             </div>
-                            <div class="inline-block justify-self-auto w-full px-6" id="Galaxy">
-                                <button type="button" class="justify-around py-3 inline-block w-full h-full bg-slate-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"><embed class="justify-center inline-block" style="vertical-align: unset" src="./assets/images/galaxy-svgrepo-com.svg"><div>Galaxies</div></button>
+                            <div class="justify-self-auto w-full px-6" id="Galaxy">
+                                <div class="flex flex-col justify-center items-center py-3 w-full h-full bg-slate-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"><img class="justify-center inline-block" style="vertical-align: unset" src="./assets/images/galaxy-svgrepo-com.svg"><div>Galaxies</div></div>
                             </div>
-                            <div class="inline-block justify-self-auto w-full px-6" id="other">
-                                <button type="button" class="justify-around py-3 inline-block w-full h-full bg-slate-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"><i class="fa-solid fa-rocket fa-3x"></i><div>Others</div></button>
+                            <div class="justify-self-auto w-full px-6" id="other">
+                                <div class="flex flex-col justify-center items-center py-3 w-full h-full bg-slate-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"><i class="fa-solid fa-rocket fa-3x"></i><div>Others</div></div>
                             </div>
                         </div>
-                        <div id="search">
-
-                            
+                        <div id="search" class="flex justify-center my-3">
+<!-- 
+                        <button type="button" class="inline ring-2 bg-slate-600" id="searchBtn" style="visibility: hidden">Search</button> -->
                         </div>
-                        <div><button type="button" class="ring-2 bg-slate-600" id="searchBtn" style="visibility: hidden">Search</button></div>
                     </div>
                     
                     </section>
@@ -100,10 +99,6 @@
                     </section>
                     <script src="./assets/scripts/starfind.js"></script>
             </div>
-
-
-
-
             <div id="myModal" class="modal">
                 <div class="modal-content">
                     <span class="close">&times;</span>
@@ -114,7 +109,7 @@
                     <h5 id="modal-location"></h5>
                 </div>
             </div>
-            <aside id="news">
+            <aside id="news" class="p-1">
                 <div id="myBtn">
 
                     <div id="item-container"></div>
