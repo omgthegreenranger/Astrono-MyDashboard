@@ -14,7 +14,6 @@ class DailyNASA {
   async fetchPicUrl() {
     const data = await fetch(this.dailyPicApi);
     const response = await data.json();
-    console.log(response); //TODO: Remove this
     return response;
   }
 
