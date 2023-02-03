@@ -55,8 +55,8 @@ typeBox.addEventListener('click', function (event){
     typeSelect = searchAApi;
     if(choiceTarget == "other") {
         moreBox.innerHTML = 
-            `<input type="text" id="searchTerm" placeholder="Enter Search Term">
-            <button type="button" id="searchBtn">Search</button>`;
+            `<input type="text" id="searchTerm" placeholder="Enter Search Term">`;
+            document.querySelector('#searchBtn').setAttribute('style', 'visibility: visible;');
             searchType = "Other";
             
     } else if (choiceTarget == "Star") {
@@ -66,8 +66,9 @@ typeBox.addEventListener('click', function (event){
         };
         moreBox.innerHTML =`<select id="searchTerm">
             ${searchOptions}
-            </select>
-            <button type="button" id="searchBtn">Search</button>`;
+            </select>`
+            document.querySelector('#searchBtn').setAttribute('style', 'visibility: visible;');
+
         searchType = "Star";
     } else if (choiceTarget == "Galaxy") {
         let searchOptions= [`<option value="" disabled selected>Selet Your Choice</option>`];
@@ -76,8 +77,9 @@ typeBox.addEventListener('click', function (event){
         }
         moreBox.innerHTML =`<select id="searchTerm">
         ${searchOptions}
-            </select>
-            <button type="button" class="ring-2 bg-slate-600" id="searchBtn">Search</button>`
+            </select>`;
+        
+        document.querySelector('#searchBtn').setAttribute('style', 'visibility: visible;');
         searchType = "Galaxy";
     };
     // choiceBox = document.querySelector('#searchBtn');
@@ -94,7 +96,6 @@ typeBox.addEventListener('click', function (event){
 choiceBox = document.querySelector('#searchBtn');
 choiceBox.addEventListener('click', function(event){
     presentBox.innerHTML = "";
-    console.log(event.target.previousElementSibling.value);
     searchTerm = event.target.previousElementSibling.value;
     params = "?term=" + searchTerm + "&match_type=fuzzy";
 
