@@ -183,12 +183,152 @@
 }
 
 
-@media only screen and (max-width: 768px) {
+
+@media only screen and (max-width: 767px) {
     #news {
         width: 100%;
     }
-    #button-news img {
-        margin-left: 70px;
+     #button-img {
+        margin-left: 360px;
+        width: 5%;
+    } 
+    .div-date {
+        margin-left: 115px;
     }
 }
 
+@media only screen and (max-width: 735px) {
+    #news {
+        width: 100%;
+    }
+     #button-img {
+        margin-left: 340px;
+    } 
+    .div-date {
+        margin-left: 120px;
+    }
+}
+
+
+@media only screen and (max-width: 690px) {
+    #button-img {
+        margin-left: 330px;
+    }
+}
+
+
+
+@media only screen and (max-width: 670px) {
+     #button-img {
+        margin-left: 320px;
+    } 
+    .div-date {
+        margin-left: 100px;
+    }
+
+}
+
+
+@media only screen and (max-width: 640px) {
+    #button-img {
+       margin-left: 310px;
+   } 
+   
+}
+
+@media only screen and (max-width: 630px) {
+    #button-img {
+       margin-left: 300px;
+   } 
+}
+
+@media only screen and (max-width: 600px) {
+    #button-img {
+       margin-left: 280px;
+   } 
+   .div-date {
+    margin-left: 90px;
+  }
+}
+
+@media only screen and (max-width: 570px) {
+    #button-img {
+       margin-left: 260px;
+   } 
+
+   .div-date {
+    margin-left: 75px;
+}
+}
+
+@media only screen and (max-width: 530px) {
+    #button-img {
+       margin-left: 240px;
+   } 
+   .div-date {
+    margin-left: 60px;
+}
+}
+
+@media only screen and (max-width: 475px) {
+    #button-img {
+       margin-left: 220px;
+   } 
+   .div-date {
+    margin-left: 70px;
+}
+}
+
+@media only screen and (max-width: 430px) {
+    #button-img {
+       margin-left: 200px;
+   } 
+   .div-date {
+    margin-left: 60px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #button-img {
+       margin-left: 190px;
+   } 
+}
+
+@media only screen and (max-width: 390px) {
+    #button-img {
+       margin-left: 185px;
+   } 
+
+}
+
+@media only screen and (max-width: 370px) {
+    #button-img {
+       margin-left: 175px;
+   } 
+   .div-date {
+    margin-left: 55px;
+    }
+
+}
+
+@media only screen and (max-width: 350px) {
+    #button-img {
+       margin-left: 165px;
+   } 
+   .div-date {
+    margin-left: 50px;
+    }
+
+}
+
+@media only screen and (max-width: 335px) {
+    #button-img {
+       margin-left: 150px;
+   } 
+}
+
+@media only screen and (max-width: 260px) {
+    #button-img {
+       margin-left: 110px;
+   } 
+}
